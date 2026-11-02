@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tejas | AI & ML Student</title>
+
+    <meta name="description"
+          content="Official portfolio of Tejas, an Artificial Intelligence and Machine Learning student at MSRIT, Bengaluru.">
+
+    <meta name="theme-color" content="#080b12">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080b12;
+            --card: #101725;
+            --blue: #2589ff;
+            --light-blue: #65b3ff;
+            --white: #f4f7ff;
+            --gray: #9ba8bd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 11, 18, 0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #1b2638;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(
+                    ellipse at 80% 40%,
+                    rgba(37,137,255,0.14),
+                    transparent 55%
+                );
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 90px 0;
+        }
+
+        .tag {
+            color: var(--light-blue);
+            border: 1px solid #174b83;
+            background: #0c1c31;
+            padding: 7px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 620px;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .primary:hover {
+            background: #0868d7;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 1px solid #35445b;
+            color: white;
+        }
+
+        .secondary:hover {
+            border-color: var(--blue);
+            color: var(--light-blue);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: var(--blue);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 35px;
+        }
+
+        .about-card {
+            background: var(--card);
+            border: 1px solid #1d2b40;
+            padding: 35px;
+            border-radius: 12px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: var(--card);
+            border: 1px solid #1d2b40;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .education-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: var(--gray);
+        }
+
+        .year {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--light-blue);
+            font-weight: 600;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid #1d2b40;
+            padding: 25px 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--blue);
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid #1d2b40;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .project-card h3 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--gray);
+        }
+
+        /* CONTACT */
+
+        .contact-card {
+            background: linear-gradient(
+                135deg,
+                #101d32,
+                #101725
+            );
+            border: 1px solid #24456b;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            background: #0a111e;
+            border: 1px solid #25364d;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item h4 {
+            color: var(--light-blue);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #1b2638;
+            text-align: center;
+            padding: 25px;
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--blue);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 12px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .about-card,
+            .contact-card {
+                padding: 24px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">T<span>.</span></a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <span class="tag">
+                    AI & ML Engineering Student
+                </span>
+
+                <h1>
+                    Hi, I'm <span>Tejas.</span>
+                    <br>
+                    Welcome to my portfolio.
+                </h1>
+
+                <p>
+                    I'm an Artificial Intelligence and Machine Learning
+                    student at MSRIT, Bengaluru, passionate about
+                    programming, technology and exploring the possibilities
+                    of artificial intelligence.
+                </p>
+
+                <div class="buttons">
+                    <a href="#contact" class="btn primary">
+                        Get In Touch
+                    </a>
+
+                    <a href="#about" class="btn secondary">
+                        Explore Portfolio
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="container">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p class="section-subtitle">
+                A little introduction.
+            </p>
+
+            <div class="about-card">
+                <p>
+                    Hello! I'm Tejas, currently pursuing a Bachelor of
+                    Engineering in Artificial Intelligence and Machine
+                    Learning at Ramaiah Institute of Technology (MSRIT),
+                    Bengaluru.
+
+                    <br><br>
+
+                    I am developing my technical foundation in C
+                    programming, Python and SQL while exploring
+                    AI-powered tools and modern technologies.
+
+                    <br><br>
+
+                    I enjoy learning new concepts, improving my
+                    programming skills and working towards building
+                    meaningful technology projects.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Education</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Academic journey.
+            </p>
+
+            <div class="education-card">
+
+                <h3>
+                    Ramaiah Institute of Technology
+                </h3>
+
+                <p>
+                    Bachelor of Engineering (B.E.)
+                </p>
+
+                <p>
+                    Artificial Intelligence and Machine Learning
+                </p>
+
+                <p>
+                    Bengaluru, Karnataka
+                </p>
+
+                <span class="year">
+                    2026 – 2030
+                </span>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+        <div class="container">
+
+            <h2 class="section-title">
+                Technical <span>Skills</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Technologies and tools I'm learning.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">&lt;/&gt;</div>
+                    <h3>C Programming</h3>
+                    <p>Basic</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">Py</div>
+                    <h3>Python</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">SQL</div>
+                    <h3>SQL</h3>
+                    <p>Database fundamentals</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">AI</div>
+                    <h3>AI Tools</h3>
+                    <p>AI-powered productivity</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Projects</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Things I'm building and exploring.
+            </p>
+
+            <div class="project-card">
+
+                <h3>Projects Coming Soon</h3>
+
+                <p>
+                    I'm currently developing my technical skills
+                    and working towards building practical projects.
+                    Stay tuned for updates!
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <div class="container">
+
+            <h2 class="section-title">
+                Get In <span>Touch</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Let's connect and explore opportunities.
+            </p>
+
+            <div class="contact-card">
+
+                <h2>Contact Information</h2>
+
+                <div class="contact-grid">
+
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <a href="mailto:tejas344012@gmail.com">
+                            tejas344012@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <a href="tel:+918660628070">
+                            +91 8660628070
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>LinkedIn</h4>
+                        <a
+                          href="https://www.linkedin.com/in/tejas-n-82b6a3390/"
+                          target="_blank"
+                          rel="noopener noreferrer">
+                            Visit My LinkedIn Profile ↗
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>College</h4>
+                        <p>MSRIT, Bengaluru</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            © 2026 <span>Tejas</span>.
+            Designed and developed by Tejas.
+        </p>
+    </footer>
+
+</body>
+</html>
